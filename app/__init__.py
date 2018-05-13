@@ -1,5 +1,6 @@
 from flask import Flask #importing Flask class fro flask module
 from .config import Config, DevConfig #getting config.py
+import ssl
 
 app = Flask(__name__)#Initializing the app
 
