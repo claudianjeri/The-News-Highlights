@@ -7,6 +7,6 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    title = 'News - One stop Mushene'
 
-    return render_template('index.html') #it automatically searches for the template folder in the app folder.
-    
+    return render_template('index.html', title = title) #it automatically searches for the template folder in the app folder.
