@@ -1,7 +1,8 @@
 from app import app #importing app instance
-import urllib.request, json #imported urllib.request module that will help in the creation of the API URL and sends a request to json modules
+import urllib.request 
+import json #imported urllib.request module that will help in the creation of the API URL and sends a request to json modules
 from .models import news
-import ssl
+import certifi
 
 Source = news.Source
 
@@ -16,7 +17,7 @@ def get_sources(category):#this function takes category as an argument
 
     get_source_url = base_url.format(category, api_key)
 
-    with urllib.request.urlopen(get_source_url) as url:#sends the request as a url
+    with urllib.request.urlopen(get_source_url, cafile=certifi.where()) as url:#sends the request as a url
         get_source_data = url.read()#read() reads the response and stores it.
         get_source_response = json.loads(get_source_data)#the response is in JSON format, this line converts it to a python dictionary.
 
