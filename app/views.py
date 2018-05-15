@@ -1,6 +1,6 @@
 from flask import render_template #this is for the creation of template files.
 from app import app #import the app instance
-from .request import get_sources#import the get_source function from request.py
+from .request import get_sources, get_articles#import the get_source function from request.py
 
 
 @app.route('/')
