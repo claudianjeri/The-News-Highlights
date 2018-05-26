@@ -6,7 +6,7 @@
             {{source.id}}
         </div>
         <div class="card-body">
-            <a href="{{source.url}}" style="height:50%; width:50%;">{{source.url}}</a>
+            <a href="/news/{{source.id}}" style="height:50%; width:50%;">See more</a>
             <p>
                 <b>
                     <i>Description: </i>
@@ -15,8 +15,11 @@
     </div>
 </div>
 </div>
-{% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %} {% for article in articles_list %}
+{% endfor %} {% endmacro %}
+ {% macro displayArticleList(articles_list) %} 
+ {% for article in articles_list %}
 <div class="card" style="height:auto; width:50%; margin-bottom:5%; margin-left:0%;">
+    
     <div class="card-header">
         {{article.title}}
     </div>

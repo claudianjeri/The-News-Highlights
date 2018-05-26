@@ -7,6 +7,7 @@ class Config:
 
     #my articles base url
     ARTICLES_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=8a48624dfbfc41d8a7009f960cccd473'
+
 class ProdConfig(Config):
 
     pass

@@ -63,7 +63,7 @@ def get_articles(id):
     Function that gets the json response to url request
     '''
     get_article_news_url = articles_url.format(id,api_key)
-    with urllib.request.urlopen(get_article_news_url) as url:
+    with urllib.request.urlopen(get_article_news_url, cafile=certifi.where()) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
 
