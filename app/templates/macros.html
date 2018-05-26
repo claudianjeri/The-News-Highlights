@@ -1,6 +1,45 @@
-{% macro displaySourceList(source_list) %}
-    {% for source in source_list %}
-        <li>{{source}}</li>
-    {% endfor %}
-
-{% endmacro %}
+{% macro displaySourceList(source_list) %} {% for source in source_list %}
+<div class="row">
+<div class="card-column" style="height:auto; width:20%; margin-bottom:5%; margin-left:0%;">
+    <div class="card">
+        <div class="card-header">
+            {{source.id}}
+        </div>
+        <div class="card-body">
+            <a href="{{source.url}}" style="height:50%; width:50%;">{{source.url}}</a>
+            <p>
+                <b>
+                    <i>Description: </i>
+                </b> {{source.description}}</p>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %} {% for article in articles_list %}
+<div class="card" style="height:auto; width:50%; margin-bottom:5%; margin-left:0%;">
+    <div class="card-header">
+        {{article.title}}
+    </div>
+    <div class="card-body">
+        <img src="{{article.urlToImage}}" alt="{{article.title}}" style="height:50%; width:50%;" />
+        <p>
+            <b>
+                <i>Written by: </i>
+            </b>{{article.author}}</p>
+        <p>
+            <b>
+                <i>Description: </i>
+            </b> {{article.description}}</p>
+        <p>
+            <b>
+                <i>Published at: </i>
+            </b> {{article.publishedAt}}</p>
+    </div>
+    <div class="card-footer">
+        <b>
+            <i>Check full article at: </i>
+        </b>
+        <a href="{{article.url}}">{{article.name}}</a>
+    </div>
+</div>
+{% endfor %} {% endmacro %}

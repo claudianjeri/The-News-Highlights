@@ -1,13 +1,70 @@
 {% extends 'base.html' %} 
 {% import 'macros.html' as macro %}
-
 {% block content %}
-<h3>General News</h3>
-<ul>
-    <li>{{macro.displaySourceList(general)}} </li>
-</ul>
-<ul>
-    <h3> Sports News </h3>
-    <li>{{macro.displaySourceList(sports)}} </li>
-</ul>
+<div class="jumbotron" style="min-height: 680px;">
+    <h3 style="margin-left: 35%; margin-top:5%;">NEWS HIGHLIGHTS</h3>
+
+    <ul class="nav nav-tabs" style="margin-top: 10%;"> 
+
+        <li>
+            <a data-toggle="tab" href="#general">GENERAL</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#sports">SPORTS</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#technology">TECHNOLOGY</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#entertainment">ENTERTAINMENT</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#health">HEALTH</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#science">SCIENCE</a>
+        </li>
+        <hr>
+        <li>
+            <a data-toggle="tab" href="#business">BUSINESS</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+
+        <div id="general" class="tab-pane fade">
+            <!--general news section-->
+            {{macro.displaySourceList(general)}}
+        </div>
+
+        <div id="sports" class="tab-pane fade">
+            <!-- Sports news sources-->
+            {{ macro.displaySourceList(sports) }}
+        </div>
+        <div id="technology" class="tab-pane fade">
+            <!-- Technology news sources -->
+            {{ macro.displaySourceList(technology) }}
+        </div>
+        <div id="entertainment" class="tab-pane fade">
+            <!-- Entertainment news sources -->
+            {{ macro.displaySourceList(entertainment) }}
+        </div>
+        <div id="health" class="tab-pane fade">
+            <!-- Health news sources -->
+            {{ macro.displaySourceList(health) }}
+        </div>
+        <div id="business" class="tab-pane fade">
+            <!-- Business news sources -->
+            {{macro.displaySourceList(business)}}
+        </div>
+        <div id="science" class="tab-pane fade">
+            <!--Science news sources-->
+            {{macro.displaySourceList(science)}}
+        </div>
+    </div>
+</div>
 {% endblock %}

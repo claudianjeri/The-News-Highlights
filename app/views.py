@@ -17,7 +17,17 @@ def index():
     technology_news = get_sources('technology')
     entertainment_news = get_sources('entertainment')
     general_news = get_sources('general')
-    health_news = get_sources('health')
+    health_news = get_sources('health') 
     science_news = get_sources('science')
 
     return render_template('index.html', title = title, business = business_news, health=health_news,science=science_news,sports = sports_news, technology = technology_news,entertainment = entertainment_news ,general = general_news) #it automatically searches for the template folder in the app folder.
+
+@app.route('/news/<id>')
+def news(id):
+    '''
+    view page function that returns the news articles and its data
+    '''
+    articles = get_articles(id)
+    title = 'Home - Welcome to the best Online News Website'
+
+    return render_template('news.html', articles=articles)
