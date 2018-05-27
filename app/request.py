@@ -102,3 +102,4 @@ def process_articles(articles_list):
             article_results.append(article_object)
 
     return article_results
+
