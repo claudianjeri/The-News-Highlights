@@ -1,12 +1,22 @@
-from flask import Flask #importing Flask class fro flask module
-from .config import Config, DevConfig #getting config.py
-from flask_bootstrap import Bootstrap #import the bootstrap class from flask_bootstrap
+from flask import Flask  # importing Flask class fro flask module
+from .config import config_options  # getting config.py
+# import the bootstrap class from flask_bootstrap
+from flask_bootstrap import Bootstrap
 
 
-app = Flask(__name__)#Initializing the app
+def create_app(config_name):
 
-app.config.from_object(DevConfig)#setting up configuration
-app.config.from_pyfile('config.py')#connects to the config.py file
-bootstrap = Bootstrap(app) #initializing boostrap flask extension
+    app = Flask(__name__)
+# Initializing the app
 
-from app import views #this will help in the creation of views
+
+# connects to the config.py file
+app.config.from_object(config_options[config_name])
+    bootstrap.init_app(app)  # initializing boostrap flask extension
+    # Registering the blueprint
+        from .main import main as main_blueprint
+        app.register_blueprint(main_blueprint)
+# setting config
+    from .requests import configure_request
+    configure_request(app)
+return app  # this will help in the creation of views

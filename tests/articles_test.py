@@ -1,5 +1,5 @@
 import unittest #import unittest module 
-from .models import articles #import the news module
+from app.models import articles #import the news module
 
 Article = articles.Articles #getting news class 
 
@@ -14,5 +14,3 @@ class ArticlesTest(unittest.Testcase): #created a subclass and defined the test 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article, Articles))
 
-if __name__ == '__main__':
-    unittest.main()

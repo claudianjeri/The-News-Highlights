@@ -1,3 +1,5 @@
+import os
+
 class Config:
     #my api key.
     NEWS_API_KEY = '8a48624dfbfc41d8a7009f960cccd473'
@@ -16,3 +18,7 @@ class DevConfig(Config):
 
     DEBUG = True
 
+config_options = {
+    'development':DevConfig
+    'production':ProdConfig
+}

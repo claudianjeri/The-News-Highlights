@@ -1,14 +1,19 @@
 from app import app #importing app instance
 import urllib.request 
 import json #imported urllib.request module that will help in the creation of the API URL and sends a request to json modules
-from .models import news
-from .models import articles
+from .models import Source
+from .models import Articles
 import certifi
 
 Source = news.Source
 
 Article = articles.Articles
 
+api_key = None
+base_url = None#getting the base url 
+articles_url = None
+def configure_request(app):
+    global api_key,base_url, articles_url
 api_key = app.config['NEWS_API_KEY']#we get the api key for the requests.
 base_url = app.config['SOURCE_API_BASE_URL']#getting the base url 
 articles_url = app.config['ARTICLES_API_BASE_URL']

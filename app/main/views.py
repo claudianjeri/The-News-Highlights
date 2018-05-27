@@ -1,9 +1,9 @@
 from flask import render_template #this is for the creation of template files.
-from app import app #import the app instance
-from .request import get_sources, get_articles#import the get_source function from request.py
+from . import main #import the app instance
+from ..request import get_sources, get_articles#import the get_source function from request.py
+from ..models import Source,Articles
 
-
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -22,7 +22,7 @@ def index():
 
     return render_template('index.html', title = title, business = business_news, health=health_news,science=science_news,sports = sports_news, technology = technology_news,entertainment = entertainment_news ,general = general_news) #it automatically searches for the template folder in the app folder.
 
-@app.route('/news/<id>')
+@main.route('/news/<id>')
 def news(id):
     '''
     view page function that returns the news articles and its data
