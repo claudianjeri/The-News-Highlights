@@ -1,22 +1,19 @@
-from app import app #importing app instance
+from . import main #importing app instance
 import urllib.request 
 import json #imported urllib.request module that will help in the creation of the API URL and sends a request to json modules
-from .models import Source
-from .models import Articles
+from .models import Source,Articles
 import certifi
 
-Source = news.Source
-
-Article = articles.Articles
 
 api_key = None
 base_url = None#getting the base url 
 articles_url = None
+
 def configure_request(app):
     global api_key,base_url, articles_url
-api_key = app.config['NEWS_API_KEY']#we get the api key for the requests.
-base_url = app.config['SOURCE_API_BASE_URL']#getting the base url 
-articles_url = app.config['ARTICLES_API_BASE_URL']
+    api_key = app.config['NEWS_API_KEY']#we get the api key for the requests.
+    base_url = app.config['SOURCE_API_BASE_URL']#getting the base url 
+    articles_url = app.config['ARTICLES_API_BASE_URL']
 
 def get_sources(category):#this function takes category as an argument
     '''
@@ -102,7 +99,7 @@ def process_articles(articles_list):
 
         if urlToImage:
             print (id)
-            article_object = Article(id,name,author,title,description,url,urlToImage,publishedAt)
+            article_object = Articles(id,name,author,title,description,url,urlToImage,publishedAt)
 
             article_results.append(article_object)
 
